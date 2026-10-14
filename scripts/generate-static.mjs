@@ -53,6 +53,9 @@ async function generateStaticHtml() {
           const html = await response.text();
           if (html.includes("<html") && html.includes("</html>")) {
             fs.writeFileSync(indexPath, html, "utf8");
+            if (fs.existsSync(outputPublic)) {
+              fs.writeFileSync(path.join(outputPublic, "index.html"), html, "utf8");
+            }
             console.log(`[generate-static] Successfully generated static index.html via SSR (${html.length} bytes)`);
             return;
           }
@@ -111,6 +114,9 @@ async function generateStaticHtml() {
 </html>`;
 
   fs.writeFileSync(indexPath, fallbackHtml, "utf8");
+  if (fs.existsSync(outputPublic)) {
+    fs.writeFileSync(path.join(outputPublic, "index.html"), fallbackHtml, "utf8");
+  }
   console.log(`[generate-static] Successfully wrote fallback index.html (${fallbackHtml.length} bytes)`);
 }
 
