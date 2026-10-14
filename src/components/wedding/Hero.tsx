@@ -11,9 +11,9 @@ export function Hero() {
 
   return (
     <PetalTap>
-      <header className="relative min-h-[100svh] overflow-hidden paper">
+      <header className="relative min-h-[100svh] overflow-hidden paper flex flex-col justify-between">
         <div
-          className="absolute inset-x-0 top-0 h-[78svh]"
+          className="absolute inset-x-0 top-0 h-[82svh]"
           style={{ transform: `translate3d(0, ${bg}px, 0)`, willChange: "transform" }}
         >
           <img
@@ -45,12 +45,11 @@ export function Hero() {
           style={{ animationDelay: "1.4s", transform: `translate3d(0, ${bg * 0.35}px, 0)` }}
         />
 
+        {/* Full Couple walking down the sandy path inside the arch */}
         <div
-          className="pointer-events-none absolute bottom-[35%] left-1/2 w-[68%] max-w-[320px] -translate-x-1/2"
+          className="pointer-events-none relative z-10 flex flex-1 items-end justify-center pt-8 sm:pt-12 pb-2"
           style={{
-            transform: `translate3d(-50%, ${-fg * 0.6}px, 0)`,
-            maskImage: "linear-gradient(to bottom, black 58%, transparent 96%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black 58%, transparent 96%)",
+            transform: `translate3d(0, ${-fg * 0.4}px, 0)`,
           }}
         >
           <img
@@ -58,18 +57,18 @@ export function Hero() {
             alt="Bride and groom walking hand in hand"
             width={1024}
             height={1536}
-            className="w-full object-contain animate-bloom drop-shadow-[0_18px_28px_rgba(92,80,68,0.18)]"
+            className="h-[46svh] max-h-[440px] min-h-[270px] w-auto max-w-[85vw] object-contain animate-bloom drop-shadow-[0_16px_28px_rgba(92,80,68,0.22)]"
           />
         </div>
 
         {/* Soft bottom veil to ensure 100% contrast & readability */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[48svh] bg-gradient-to-t from-[var(--background)] via-[var(--background)]/90 to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[36svh] bg-gradient-to-t from-[var(--background)] via-[var(--background)]/90 to-transparent"
           aria-hidden="true"
         />
 
         <div
-          className="relative z-10 flex min-h-[100svh] flex-col items-center justify-end px-6 pb-14 text-center"
+          className="relative z-10 flex flex-col items-center justify-end px-6 pb-12 text-center"
           style={{ transform: `translate3d(0, ${-fg}px, 0)` }}
         >
           <p
@@ -79,7 +78,7 @@ export function Hero() {
             Together with our families
           </p>
           <h1
-            className="mt-3 font-display text-[3.15rem] leading-[1.02] text-foreground animate-ink"
+            className="mt-2 font-display text-[2.9rem] sm:text-[3.15rem] leading-[1.02] text-foreground animate-ink"
             style={{ animationDelay: "0.7s" }}
           >
             {couple.groom}
@@ -87,7 +86,7 @@ export function Hero() {
             {couple.bride}
           </h1>
           <p
-            className="mt-5 text-[0.66rem] uppercase tracking-airy text-muted-foreground animate-ink"
+            className="mt-4 text-[0.66rem] uppercase tracking-airy text-muted-foreground animate-ink"
             style={{ animationDelay: "1s" }}
           >
             {couple.dateLabel}
