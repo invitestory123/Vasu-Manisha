@@ -5,7 +5,7 @@ const poster =
 
 const SESSION_KEY = "everlasting-vows-opened";
 
-export function InvitationOpener() {
+export function InvitationOpener({ onStartOpen }: { onStartOpen?: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [visible, setVisible] = useState(false);
   const [started, setStarted] = useState(false);
@@ -26,6 +26,7 @@ export function InvitationOpener() {
   async function openInvitation() {
     if (!videoRef.current || started) return;
     setStarted(true);
+    onStartOpen?.();
     try {
       await videoRef.current.play();
     } catch {

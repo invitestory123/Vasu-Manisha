@@ -6,6 +6,33 @@ export const couple = {
   weddingISO: "2026-11-22T11:00:00+05:30",
 };
 
+export const brideDetails = {
+  name: "Manisha Mehra",
+  role: "The Bride",
+  tagline: "Grace & Radiance",
+  parents: "Daughter of Shri Harish Singh Mehra and Smt. Hema Mehra",
+  grandparents:
+    "In loving memory of grandparents Late Shri Lachcham Singh Mehra and Late Smt. Bachuli Devi, whose blessings we cherish on this special occasion.",
+};
+
+export const groomDetails = {
+  name: "Vasu Issar",
+  role: "The Groom",
+  tagline: "Charm & Joy",
+  parents: "Son of Shri Manohar Lal Issar and Smt. Geeta Issar",
+  grandparents:
+    "In loving memory of grandparents Late Shri Lahori Lal Issar and Late Smt. Kamlawanti Issar, whose blessings we cherish on this special occasion.",
+};
+
+export const coupleFusion = {
+  title: "Pahadi & Punjabi Fusion",
+  quote:
+    "From the mountains of Pahad to the vibrant spirit of Punjab, two cultures, two traditions, and two hearts come together to create one beautiful love story!",
+  wittyTagline:
+    "Where serene Himalayan grace meets vibrant Punjabi dhol — two families, endless celebrations, and one eternal bond.",
+  badge: "Pahadi Grace × Punjabi Beat",
+};
+
 export type WeddingEvent = {
   name: string;
   subtitle?: string;
@@ -15,9 +42,10 @@ export type WeddingEvent = {
   venue: string;
   dressCode?: string;
   note?: string;
+  themeColor?: string;
 };
 
-export const events: WeddingEvent[] = [
+export const preWeddingEvents: WeddingEvent[] = [
   {
     name: "Haldi",
     subtitle: "Shades of Sunshine",
@@ -28,6 +56,7 @@ export const events: WeddingEvent[] = [
     dressCode:
       "Bring out your brightest and happy hues and playful ethnic or indo western looks. The more colourful, the merrier!",
     note: "Shades of Sunshine",
+    themeColor: "from-amber-500/15 to-yellow-500/5",
   },
   {
     name: "Mehendi",
@@ -38,6 +67,7 @@ export const events: WeddingEvent[] = [
     venue: "RPN Resort and cafe, Uttarakhand",
     dressCode: "Pastels or brights, florals or prints — just bring your happiest colours!",
     note: "Mehendi in Bloom",
+    themeColor: "from-emerald-500/15 to-teal-500/5",
   },
   {
     name: "Sangeet",
@@ -48,18 +78,23 @@ export const events: WeddingEvent[] = [
     venue: "RPN Resort and cafe, Uttarakhand",
     dressCode: "Think sequins, shimmer, metallics and a touch of sparkle. Dress to dazzle!",
     note: "Glitter & Glam",
-  },
-  {
-    name: "Wedding",
-    subtitle: "So, Our Forever Begins",
-    glyph: "☀",
-    date: "22 Nov 2026",
-    time: "11:00 AM",
-    venue: "RPN Resort and cafe, Uttarakhand",
-    dressCode: "Think soft hues, delicate shades and dreamy pastels",
-    note: "So, Our Forever Begins",
+    themeColor: "from-purple-500/15 to-rose-500/5",
   },
 ];
+
+export const weddingCeremony: WeddingEvent = {
+  name: "Wedding",
+  subtitle: "So, Our Forever Begins",
+  glyph: "☀",
+  date: "22 Nov 2026",
+  time: "11:00 AM",
+  venue: "RPN Resort and cafe, Uttarakhand",
+  dressCode: "Think soft hues, delicate shades and dreamy pastels",
+  note: "So, Our Forever Begins",
+  themeColor: "from-amber-500/20 via-primary/10 to-transparent",
+};
+
+export const events: WeddingEvent[] = [...preWeddingEvents, weddingCeremony];
 
 export const venue = {
   name: "RPN Resort and cafe",

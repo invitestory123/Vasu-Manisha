@@ -62,8 +62,8 @@ export function WeddingFooter() {
           className="w-24 opacity-75"
         />
         <p className="mt-4 script text-lg text-primary">We cannot wait to celebrate with you</p>
-        <h2 className="mt-4 font-display text-[2.65rem] leading-[1.05]">
-          {couple.groom} <span className="script text-2xl text-primary">&</span> {couple.bride}
+        <h2 className="mt-4 font-display text-[2.2rem] sm:text-[2.65rem] leading-[1.15]">
+          Issar <span className="script text-2xl text-primary">&</span> Mehra Family
         </h2>
 
         <div className="mt-7 grid w-full max-w-sm grid-cols-2 border-y border-primary/25 py-4 text-left">

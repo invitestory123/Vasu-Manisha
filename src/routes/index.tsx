@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/wedding/Hero";
 import { Countdown } from "@/components/wedding/Countdown";
@@ -6,12 +7,23 @@ import { SectionTitle } from "@/components/wedding/Ornaments";
 import { WishLantern } from "@/components/wedding/WishLantern";
 import { WeddingFooter } from "@/components/wedding/WeddingFooter";
 import { InvitationOpener } from "@/components/wedding/InvitationOpener";
-import { couple, events, venue, downloadICS } from "@/lib/wedding";
+import { MusicPlayer } from "@/components/wedding/MusicPlayer";
+import {
+  couple,
+  brideDetails,
+  groomDetails,
+  coupleFusion,
+  preWeddingEvents,
+  weddingCeremony,
+  venue,
+  downloadICS,
+} from "@/lib/wedding";
 import { useParallax } from "@/hooks/use-reveal";
 const floral = "https://media.invitestory.in/seashell-vows/src/assets/floral-spray.png";
 import mapImg from "@/assets/venue-map.jpg";
-import brideImg from "@/assets/bride-animated.jpg";
-import groomImg from "@/assets/groom-animated.jpg";
+import brideImg from "@/assets/bride.jpg";
+import groomImg from "@/assets/groom.jpg";
+import coupleTogetherImg from "@/assets/couple-together.png";
 const ringsVignette =
   "https://media.invitestory.in/seashell-vows/src/assets/rings-seashell-vignette.png";
 const floralDivider =
@@ -54,26 +66,192 @@ export const Route = createFileRoute("/")({
 
 function Invitation() {
   const drift = useParallax(0.18);
+  const [musicStarted, setMusicStarted] = useState(false);
 
   return (
     <main className="paper overflow-x-hidden">
-      <InvitationOpener />
+      {/* 1. Opening Screen with Video Opener */}
+      <InvitationOpener onStartOpen={() => setMusicStarted(true)} />
+
+      {/* Floating Background Music Player */}
+      <MusicPlayer autoPlayTrigger={musicStarted} />
+
+      {/* Hero Welcome Screen */}
       <Hero />
 
-      {/* Countdown */}
-      <section className="px-6 py-14">
+      {/* Family Introduction & Grandparents Tribute */}
+      <section className="relative px-6 pt-12 pb-8">
         <Reveal>
-          <p className="text-center text-[0.62rem] uppercase tracking-airy text-muted-foreground">
-            Counting down to the vows
-          </p>
-          <div className="mt-6">
-            <Countdown iso={couple.weddingISO} />
+          <SectionTitle overline="Cherished Blessings" title="The Families" />
+          <div className="card-soft mx-auto max-w-2xl p-6 sm:p-9 text-center border-primary/35 shadow-soft">
+            <p className="script text-xl sm:text-2xl text-primary font-medium">
+              With the heavenly blessings of our beloved grandparents
+            </p>
+
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+              {/* Bride's Grandparents */}
+              <div className="rounded-sm border border-primary/25 bg-secondary/50 p-4">
+                <span className="block text-[0.62rem] font-medium uppercase tracking-airy text-primary">
+                  Grandparents of Manisha
+                </span>
+                <h4 className="mt-2 font-display text-lg sm:text-xl text-foreground font-normal">
+                  Late Shri Lachcham Singh Mehra
+                </h4>
+                <span className="script text-primary text-sm block">&amp;</span>
+                <h4 className="font-display text-lg sm:text-xl text-foreground font-normal">
+                  Late Smt. Bachuli Devi
+                </h4>
+              </div>
+
+              {/* Groom's Grandparents */}
+              <div className="rounded-sm border border-primary/25 bg-secondary/50 p-4">
+                <span className="block text-[0.62rem] font-medium uppercase tracking-airy text-primary">
+                  Grandparents of Vasu
+                </span>
+                <h4 className="mt-2 font-display text-lg sm:text-xl text-foreground font-normal">
+                  Late Shri Lahori Lal Issar
+                </h4>
+                <span className="script text-primary text-sm block">&amp;</span>
+                <h4 className="font-display text-lg sm:text-xl text-foreground font-normal">
+                  Late Smt. Kamlawanti Issar
+                </h4>
+              </div>
+            </div>
+
+            <p className="mt-5 font-display text-sm sm:text-[0.95rem] italic text-foreground/80 leading-relaxed max-w-lg mx-auto">
+              Whose cherished blessings, unconditional love, and timeless grace continue to light our path on this special occasion.
+            </p>
+
+            <div className="my-6 flex items-center justify-center gap-3 text-primary/60">
+              <span className="h-px w-14 bg-primary/30" />
+              <span className="text-xs">❖</span>
+              <span className="h-px w-14 bg-primary/30" />
+            </div>
+
+            <p className="text-[0.62rem] uppercase tracking-airy text-muted-foreground">
+              Together with our parents
+            </p>
+
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+              <div className="p-2">
+                <span className="text-xs uppercase tracking-airy text-primary font-medium block">
+                  Mehra Family
+                </span>
+                <p className="font-display text-lg text-foreground mt-1">
+                  Shri Harish Singh Mehra<br />
+                  <span className="script text-primary text-sm">&amp;</span><br />
+                  Smt. Hema Mehra
+                </p>
+              </div>
+              <div className="p-2">
+                <span className="text-xs uppercase tracking-airy text-primary font-medium block">
+                  Issar Family
+                </span>
+                <p className="font-display text-lg text-foreground mt-1">
+                  Shri Manohar Lal Issar<br />
+                  <span className="script text-primary text-sm">&amp;</span><br />
+                  Smt. Geeta Issar
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-5 script text-base sm:text-lg text-primary">
+              Cordially invite you to celebrate the joyous wedding festivities of their beloved children
+            </p>
           </div>
         </Reveal>
       </section>
 
-      {/* Story */}
-      <section className="relative px-7 pb-16">
+      {/* 2 & 3. Meet the Bride & Meet the Groom (Individual Introductions) */}
+      <section className="relative px-6 py-10">
+        <Reveal>
+          <SectionTitle overline="Together in Love" title="Bride & Groom" />
+        </Reveal>
+        <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
+          {/* 2. Meet the Bride – Manisha Mehra */}
+          <Reveal delay={60}>
+            <article className="card-soft group overflow-hidden text-center h-full flex flex-col">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
+                <img
+                  src={brideImg}
+                  alt="Manisha Mehra — The Bride"
+                  loading="lazy"
+                  className="h-full w-full object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-white/30 bg-black/45 px-3.5 py-1 text-[0.62rem] uppercase tracking-airy text-white backdrop-blur-md">
+                  {brideDetails.role}
+                </span>
+              </div>
+              <div className="p-6 flex flex-1 flex-col justify-between">
+                <div>
+                  <h3 className="font-display text-2xl sm:text-3xl text-foreground font-normal">
+                    {brideDetails.name}
+                  </h3>
+                  <p className="mt-1 script text-base text-primary">{brideDetails.tagline}</p>
+                  <p className="mt-3 text-sm font-medium text-foreground/90 leading-snug">
+                    {brideDetails.parents}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-primary/20">
+                  <div className="rounded border border-primary/25 bg-secondary/50 p-3.5 text-center">
+                    <span className="block text-[0.6rem] font-medium uppercase tracking-airy text-primary">
+                      Cherished Blessings
+                    </span>
+                    <p className="mt-1 font-display text-sm leading-relaxed text-foreground/80 italic">
+                      {brideDetails.grandparents}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </Reveal>
+
+          {/* 3. Meet the Groom – Vasu Issar */}
+          <Reveal delay={120}>
+            <article className="card-soft group overflow-hidden text-center h-full flex flex-col">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
+                <img
+                  src={groomImg}
+                  alt="Vasu Issar — The Groom"
+                  loading="lazy"
+                  className="h-full w-full object-cover object-[center_15%] transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-white/30 bg-black/45 px-3.5 py-1 text-[0.62rem] uppercase tracking-airy text-white backdrop-blur-md">
+                  {groomDetails.role}
+                </span>
+              </div>
+              <div className="p-6 flex flex-1 flex-col justify-between">
+                <div>
+                  <h3 className="font-display text-2xl sm:text-3xl text-foreground font-normal">
+                    {groomDetails.name}
+                  </h3>
+                  <p className="mt-1 script text-base text-primary">{groomDetails.tagline}</p>
+                  <p className="mt-3 text-sm font-medium text-foreground/90 leading-snug">
+                    {groomDetails.parents}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-primary/20">
+                  <div className="rounded border border-primary/25 bg-secondary/50 p-3.5 text-center">
+                    <span className="block text-[0.6rem] font-medium uppercase tracking-airy text-primary">
+                      Cherished Blessings
+                    </span>
+                    <p className="mt-1 font-display text-sm leading-relaxed text-foreground/80 italic">
+                      {groomDetails.grandparents}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 4. Meet the Couple: Pahadi & Punjabi Fusion */}
+      <section className="relative px-6 pb-16">
         <img
           src={floral}
           alt=""
@@ -81,81 +259,69 @@ function Invitation() {
           loading="lazy"
           width={1024}
           height={1024}
-          className="pointer-events-none absolute -right-16 -top-6 w-40 opacity-40"
-          style={{ transform: `translate3d(0, ${-drift * 0.4}px, 0)` }}
+          className="pointer-events-none absolute -left-12 -top-8 w-36 opacity-35"
+          style={{ transform: `translate3d(0, ${drift * 0.3}px, 0)` }}
         />
         <Reveal>
-          <SectionTitle overline="Our invitation" title="So, Our Forever Begins" />
-          <p className="text-center font-display text-[1.18rem] leading-[1.85] text-foreground/90">
-            With joyful hearts and the blessings of our families, we invite you to join us as we
-            celebrate our love and embark on this sacred journey together amidst the serene hills of
-            Uttarakhand.
-          </p>
-          <p className="mt-6 script text-center text-lg text-primary">{couple.tagline}</p>
-          <img
-            src={ringsVignette}
-            alt="Watercolor wedding rings, flowers and gold leaves"
-            loading="lazy"
-            width={1536}
-            height={1024}
-            className="mx-auto mt-7 w-60 object-contain"
-          />
+          <SectionTitle overline="Two Cultures · One Love" title="Meet the Couple" />
+        </Reveal>
+
+        <Reveal delay={60}>
+          <div className="card-soft mx-auto max-w-xl overflow-hidden text-center">
+            <div className="relative aspect-[4/5] sm:aspect-[16/11] w-full overflow-hidden bg-muted">
+              <img
+                src={coupleTogetherImg}
+                alt="Manisha & Vasu together"
+                loading="lazy"
+                className="h-full w-full object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+              <div className="absolute bottom-4 inset-x-0 text-center px-4">
+                <span className="inline-block rounded-full border border-white/40 bg-black/45 px-4 py-1 text-[0.62rem] uppercase tracking-airy text-white backdrop-blur-md">
+                  {coupleFusion.badge}
+                </span>
+                <h3 className="mt-2 font-display text-3xl sm:text-4xl text-white drop-shadow-md">
+                  {couple.bride} <span className="script text-2xl text-[#f4d8a1]">&amp;</span> {couple.groom}
+                </h3>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8">
+              <div className="mx-auto mb-2 flex items-center justify-center text-primary/70">
+                <span className="text-3xl font-display leading-none">“</span>
+              </div>
+              <blockquote className="font-display text-[1.12rem] sm:text-[1.28rem] leading-[1.8] text-foreground/90 italic">
+                “{coupleFusion.quote}”
+              </blockquote>
+              <div className="my-4 flex items-center justify-center gap-3 text-primary/60">
+                <span className="h-px w-10 bg-primary/30" />
+                <span className="text-xs">❋</span>
+                <span className="h-px w-10 bg-primary/30" />
+              </div>
+              <p className="script text-base sm:text-lg text-primary">
+                {coupleFusion.wittyTagline}
+              </p>
+            </div>
+          </div>
         </Reveal>
       </section>
 
-      {/* The Couple: Bride & Groom */}
-      <section className="relative px-6 pb-16">
+      {/* 5. Save the Date & Countdown */}
+      <section className="px-6 pb-16">
         <Reveal>
-          <SectionTitle overline="Together in Love" title="Bride & Groom" />
+          <SectionTitle overline="Save the Date" title="Counting Down to the Vows" />
+          <div className="card-soft mx-auto max-w-lg p-6 text-center">
+            <p className="text-[0.68rem] uppercase tracking-airy text-primary font-medium">
+              {couple.dateLabel} · {venue.locationShort}
+            </p>
+            <div className="mt-6">
+              <Countdown iso={couple.weddingISO} />
+            </div>
+          </div>
         </Reveal>
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {/* Bride Card */}
-          <Reveal delay={60}>
-            <article className="card-soft group overflow-hidden text-center">
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
-                <img
-                  src={brideImg}
-                  alt="Manisha — The Bride"
-                  loading="lazy"
-                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-white/30 bg-black/40 px-3.5 py-1 text-[0.62rem] uppercase tracking-airy text-white backdrop-blur-md">
-                  The Bride
-                </span>
-              </div>
-              <div className="p-5">
-                <h3 className="font-display text-2xl text-foreground">Manisha</h3>
-                <p className="mt-1 script text-base text-primary">Grace &amp; Radiance</p>
-              </div>
-            </article>
-          </Reveal>
-
-          {/* Groom Card */}
-          <Reveal delay={120}>
-            <article className="card-soft group overflow-hidden text-center">
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
-                <img
-                  src={groomImg}
-                  alt="Vasu — The Groom"
-                  loading="lazy"
-                  className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-white/30 bg-black/40 px-3.5 py-1 text-[0.62rem] uppercase tracking-airy text-white backdrop-blur-md">
-                  The Groom
-                </span>
-              </div>
-              <div className="p-5">
-                <h3 className="font-display text-2xl text-foreground">Vasu</h3>
-                <p className="mt-1 script text-base text-primary">Charm &amp; Joy</p>
-              </div>
-            </article>
-          </Reveal>
-        </div>
       </section>
 
-      {/* Events */}
+      {/* Day 1: Pre-Wedding Celebrations (Haldi, Mehendi, Sangeet) */}
       <section className="relative px-6 pb-16">
         <img
           src={floralDivider}
@@ -167,40 +333,43 @@ function Invitation() {
           className="pointer-events-none mx-auto mb-8 w-full max-w-md opacity-80"
         />
         <Reveal>
-          <SectionTitle overline="Two days of love & laughter" title="Celebrations" />
+          <SectionTitle overline="Day 1 · Saturday, 21 November 2026" title="Pre-Wedding Celebrations" />
         </Reveal>
-        <ul className="space-y-4">
-          {events.map((ev, i) => (
+
+        <ul className="space-y-5 max-w-2xl mx-auto">
+          {preWeddingEvents.map((ev, i) => (
             <li key={ev.name}>
-              <Reveal delay={i * 60}>
-                <article className="card-soft press p-5">
-                  <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-primary/30 text-primary">
-                      {ev.glyph}
-                    </span>
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-baseline gap-2">
-                        <h3 className="font-display text-2xl">{ev.name}</h3>
-                        {ev.subtitle && (
-                          <span className="script text-base text-primary">— {ev.subtitle}</span>
-                        )}
+              <Reveal delay={i * 80}>
+                <article className="card-soft press p-5 sm:p-6 transition-all duration-300 hover:border-primary/45">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-primary/20 pb-4">
+                    <div className="flex items-center gap-3.5">
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary/35 bg-primary/10 text-primary text-xl font-serif">
+                        {ev.glyph}
+                      </span>
+                      <div>
+                        <div className="flex flex-wrap items-baseline gap-2">
+                          <h3 className="font-display text-2xl sm:text-3xl">{ev.name}</h3>
+                          {ev.subtitle && (
+                            <span className="script text-base sm:text-lg text-primary">— {ev.subtitle}</span>
+                          )}
+                        </div>
+                        <p className="mt-1 text-[0.68rem] uppercase tracking-airy font-medium text-primary">
+                          {ev.date} · {ev.time}
+                        </p>
                       </div>
-                      <p className="text-[0.62rem] uppercase tracking-airy text-muted-foreground">
-                        {ev.date} · {ev.time}
-                      </p>
                     </div>
+                    <span className="self-start sm:self-auto rounded-full border border-primary/30 bg-secondary/80 px-3.5 py-1 text-[0.62rem] uppercase tracking-wider text-muted-foreground">
+                      RPN Resort &amp; Cafe
+                    </span>
                   </div>
-                  <p className="mt-3 text-sm text-foreground/80">{ev.venue}</p>
+
                   {ev.dressCode && (
-                    <div className="mt-3 rounded border border-primary/20 bg-secondary/60 p-3 text-xs text-foreground/90">
+                    <div className="mt-4 rounded border border-primary/20 bg-secondary/60 p-3.5 text-xs text-foreground/90">
                       <span className="mb-1 block text-[0.62rem] font-medium uppercase tracking-airy text-primary">
                         Dress Code
                       </span>
                       <p className="leading-relaxed">{ev.dressCode}</p>
                     </div>
-                  )}
-                  {ev.note && !ev.dressCode && (
-                    <p className="mt-1 text-xs italic text-muted-foreground">{ev.note}</p>
                   )}
                 </article>
               </Reveal>
@@ -209,31 +378,80 @@ function Invitation() {
         </ul>
       </section>
 
-      <Reveal>
-        <WishLantern />
-      </Reveal>
-
-      {/* Venue */}
-      <section className="px-6 pb-16">
+      {/* Day 2: The Wedding Ceremony (Standalone Highlighted Royal Page Section) */}
+      <section className="relative px-6 pb-20">
         <Reveal>
-          <SectionTitle overline="Find your way" title="The venue" />
-          <div className="card-soft overflow-hidden">
+          <div className="card-soft relative mx-auto max-w-2xl overflow-hidden border-2 border-primary/50 p-7 sm:p-12 text-center shadow-[0_20px_50px_rgba(207,169,110,0.2)]">
+            <div className="inline-block rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-[0.64rem] uppercase tracking-[0.28em] text-primary font-medium">
+              Day 2 · The Sacred Vows
+            </div>
+
+            <h2 className="mt-4 font-display text-[2.75rem] sm:text-[3.35rem] leading-[1.05] text-foreground font-light">
+              Wedding
+            </h2>
+            <p className="mt-2 script text-xl sm:text-2xl text-primary">
+              So, Our Forever Begins
+            </p>
+
+            <div className="my-6 flex items-center justify-center gap-3 text-primary/60">
+              <span className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
+              <span className="text-sm">☀</span>
+              <span className="h-px w-16 bg-gradient-to-l from-transparent to-primary/50" />
+            </div>
+
+            {/* Date, Time & Venue in prominent gold frame */}
+            <div className="rounded-sm border border-primary/35 bg-secondary/60 p-5 sm:p-6 my-6">
+              <p className="text-[0.72rem] uppercase tracking-[0.24em] font-semibold text-primary">
+                Sunday · 22 November 2026
+              </p>
+              <p className="mt-2 font-display text-2xl sm:text-3xl text-foreground">
+                11:00 AM Onwards
+              </p>
+              <p className="mt-2 text-sm text-foreground/85 font-medium">
+                RPN Resort and cafe, Uttarakhand
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Village, near Phulsani, Ankowala, Aamwala, Uttarakhand 248003
+              </p>
+            </div>
+
+            {/* Dress Code Highlight */}
+            <div className="rounded border border-primary/25 bg-background/80 p-4 text-center my-6">
+              <span className="mb-1 block text-[0.62rem] font-medium uppercase tracking-airy text-primary">
+                Dress Code
+              </span>
+              <p className="font-display text-base sm:text-lg text-foreground/90 italic">
+                {weddingCeremony.dressCode}
+              </p>
+            </div>
+
+            <p className="font-display text-base sm:text-lg leading-relaxed text-foreground/90 max-w-lg mx-auto">
+              With the sacred pheras around the holy fire and the blessings of all our near and dear ones,
+              we step into eternity hand in hand.
+            </p>
+
             <img
-              src={mapImg}
-              alt={`Illustrated map of ${venue.name}`}
+              src={ringsVignette}
+              alt="Watercolor wedding rings, flowers and gold leaves"
               loading="lazy"
-              width={1024}
-              height={768}
-              className="h-44 w-full object-cover"
+              width={1536}
+              height={1024}
+              className="mx-auto mt-7 w-64 object-contain"
             />
-            <div className="p-5">
-              <h3 className="font-display text-2xl">{venue.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{venue.address}</p>
+
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={downloadICS}
+                className="press flex min-h-[46px] w-full sm:w-auto items-center justify-center rounded-sm bg-primary px-6 text-[0.66rem] uppercase tracking-airy text-primary-foreground font-medium"
+              >
+                Add to Calendar
+              </button>
               <a
                 href={venue.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="press mt-5 flex min-h-[48px] items-center justify-center rounded-sm bg-primary px-5 text-[0.68rem] uppercase tracking-airy text-primary-foreground"
+                className="press flex min-h-[46px] w-full sm:w-auto items-center justify-center rounded-sm border border-primary/45 bg-secondary px-6 text-[0.66rem] uppercase tracking-airy text-foreground font-medium"
               >
                 Open in Google Maps
               </a>
@@ -242,10 +460,44 @@ function Invitation() {
         </Reveal>
       </section>
 
-      {/* Calendar CTA in the thumb zone */}
+      {/* Interactive Wish Lantern */}
+      <Reveal>
+        <WishLantern />
+      </Reveal>
+
+      {/* Venue Section */}
+      <section className="px-6 pb-16">
+        <Reveal>
+          <SectionTitle overline="Find your way" title="The venue" />
+          <div className="card-soft overflow-hidden max-w-2xl mx-auto">
+            <img
+              src={mapImg}
+              alt={`Illustrated map of ${venue.name}`}
+              loading="lazy"
+              width={1024}
+              height={768}
+              className="h-48 w-full object-cover"
+            />
+            <div className="p-6">
+              <h3 className="font-display text-2xl">{venue.name}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{venue.address}</p>
+              <a
+                href={venue.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="press mt-5 flex min-h-[48px] items-center justify-center rounded-sm bg-primary px-5 text-[0.68rem] uppercase tracking-airy text-primary-foreground font-medium"
+              >
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Calendar CTA */}
       <section className="px-6 pb-20">
         <Reveal>
-          <div className="card-soft p-6 text-center">
+          <div className="card-soft p-6 text-center max-w-md mx-auto">
             <p className="script text-lg text-primary">Save our date</p>
             <p className="mt-2 text-sm text-muted-foreground">
               Add every ceremony to your calendar in one tap.
@@ -253,7 +505,7 @@ function Invitation() {
             <button
               type="button"
               onClick={downloadICS}
-              className="press mt-5 flex min-h-[52px] w-full items-center justify-center rounded-sm border border-primary/45 bg-secondary text-[0.68rem] uppercase tracking-airy text-foreground"
+              className="press mt-5 flex min-h-[52px] w-full items-center justify-center rounded-sm border border-primary/45 bg-secondary text-[0.68rem] uppercase tracking-airy text-foreground font-medium"
             >
               Add to Calendar
             </button>
@@ -261,6 +513,7 @@ function Invitation() {
         </Reveal>
       </section>
 
+      {/* Footer */}
       <WeddingFooter />
     </main>
   );
