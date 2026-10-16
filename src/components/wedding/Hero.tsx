@@ -77,6 +77,12 @@ export function Hero() {
           >
             Together with our families
           </p>
+          <p
+            className="mt-1 font-script text-lg sm:text-xl text-primary font-medium tracking-wide animate-ink drop-shadow-sm"
+            style={{ animationDelay: "0.55s" }}
+          >
+            We invite you to the union of
+          </p>
           <h1
             className="mt-2 font-display text-[2.9rem] sm:text-[3.15rem] leading-[1.02] text-foreground animate-ink"
             style={{ animationDelay: "0.7s" }}

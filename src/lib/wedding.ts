@@ -27,7 +27,7 @@ export const groomDetails = {
 export const coupleFusion = {
   title: "Pahadi & Punjabi Fusion",
   quote:
-    "From the mountains of Pahad to the vibrant spirit of Punjab, two cultures, two traditions, and two hearts come together to create one beautiful love story!",
+    "From the mountains of Kumaon to the vibrant spirit of Punjab, two cultures, two traditions, and two hearts come together to create one beautiful love story!",
   wittyTagline:
     "Where serene Himalayan grace meets vibrant Punjabi dhol — two families, endless celebrations, and one eternal bond.",
   badge: "Pahadi Grace × Punjabi Beat",

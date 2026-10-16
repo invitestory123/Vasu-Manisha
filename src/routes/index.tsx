@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/wedding/Hero";
 import { Countdown } from "@/components/wedding/Countdown";
 import { Reveal } from "@/components/wedding/Section";
-import { SectionTitle } from "@/components/wedding/Ornaments";
+import { SectionTitle, Divider } from "@/components/wedding/Ornaments";
 import { WishLantern } from "@/components/wedding/WishLantern";
 import { WeddingFooter } from "@/components/wedding/WeddingFooter";
 import { InvitationOpener } from "@/components/wedding/InvitationOpener";
@@ -23,7 +23,7 @@ const floral = "https://media.invitestory.in/seashell-vows/src/assets/floral-spr
 import mapImg from "@/assets/venue-map.jpg";
 import brideImg from "@/assets/bride.jpg";
 import groomImg from "@/assets/groom.jpg";
-import coupleTogetherImg from "@/assets/couple-together.png";
+import coupleTogetherImg from "@/assets/couple-real.jpg";
 const ringsVignette =
   "https://media.invitestory.in/seashell-vows/src/assets/rings-seashell-vignette.png";
 const floralDivider =
@@ -79,88 +79,7 @@ function Invitation() {
       {/* Hero Welcome Screen */}
       <Hero />
 
-      {/* Family Introduction & Grandparents Tribute */}
-      <section className="relative px-6 pt-12 pb-8">
-        <Reveal>
-          <SectionTitle overline="Cherished Blessings" title="The Families" />
-          <div className="card-soft mx-auto max-w-2xl p-6 sm:p-9 text-center border-primary/35 shadow-soft">
-            <p className="script text-xl sm:text-2xl text-primary font-medium">
-              With the heavenly blessings of our beloved grandparents
-            </p>
 
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
-              {/* Bride's Grandparents */}
-              <div className="rounded-sm border border-primary/25 bg-secondary/50 p-4">
-                <span className="block text-[0.62rem] font-medium uppercase tracking-airy text-primary">
-                  Grandparents of Manisha
-                </span>
-                <h4 className="mt-2 font-display text-lg sm:text-xl text-foreground font-normal">
-                  Late Shri Lachcham Singh Mehra
-                </h4>
-                <span className="script text-primary text-sm block">&amp;</span>
-                <h4 className="font-display text-lg sm:text-xl text-foreground font-normal">
-                  Late Smt. Bachuli Devi
-                </h4>
-              </div>
-
-              {/* Groom's Grandparents */}
-              <div className="rounded-sm border border-primary/25 bg-secondary/50 p-4">
-                <span className="block text-[0.62rem] font-medium uppercase tracking-airy text-primary">
-                  Grandparents of Vasu
-                </span>
-                <h4 className="mt-2 font-display text-lg sm:text-xl text-foreground font-normal">
-                  Late Shri Lahori Lal Issar
-                </h4>
-                <span className="script text-primary text-sm block">&amp;</span>
-                <h4 className="font-display text-lg sm:text-xl text-foreground font-normal">
-                  Late Smt. Kamlawanti Issar
-                </h4>
-              </div>
-            </div>
-
-            <p className="mt-5 font-display text-sm sm:text-[0.95rem] italic text-foreground/80 leading-relaxed max-w-lg mx-auto">
-              Whose cherished blessings, unconditional love, and timeless grace continue to light our path on this special occasion.
-            </p>
-
-            <div className="my-6 flex items-center justify-center gap-3 text-primary/60">
-              <span className="h-px w-14 bg-primary/30" />
-              <span className="text-xs">❖</span>
-              <span className="h-px w-14 bg-primary/30" />
-            </div>
-
-            <p className="text-[0.62rem] uppercase tracking-airy text-muted-foreground">
-              Together with our parents
-            </p>
-
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
-              <div className="p-2">
-                <span className="text-xs uppercase tracking-airy text-primary font-medium block">
-                  Mehra Family
-                </span>
-                <p className="font-display text-lg text-foreground mt-1">
-                  Shri Harish Singh Mehra<br />
-                  <span className="script text-primary text-sm">&amp;</span><br />
-                  Smt. Hema Mehra
-                </p>
-              </div>
-              <div className="p-2">
-                <span className="text-xs uppercase tracking-airy text-primary font-medium block">
-                  Issar Family
-                </span>
-                <p className="font-display text-lg text-foreground mt-1">
-                  Shri Manohar Lal Issar<br />
-                  <span className="script text-primary text-sm">&amp;</span><br />
-                  Smt. Geeta Issar
-                </p>
-              </div>
-            </div>
-
-            <p className="mt-5 script text-base sm:text-lg text-primary">
-              Cordially invite you to celebrate the joyous wedding festivities of their beloved children
-            </p>
-          </div>
-        </Reveal>
-      </section>
 
       {/* 2 & 3. Meet the Bride & Meet the Groom (Individual Introductions) */}
       <section className="relative px-6 py-10">
@@ -273,7 +192,7 @@ function Invitation() {
                 src={coupleTogetherImg}
                 alt="Manisha & Vasu together"
                 loading="lazy"
-                className="h-full w-full object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
+                className="h-full w-full object-cover object-[center_20%] transition-transform duration-700 ease-out hover:scale-105"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
               <div className="absolute bottom-4 inset-x-0 text-center px-4">
@@ -333,7 +252,17 @@ function Invitation() {
           className="pointer-events-none mx-auto mb-8 w-full max-w-md opacity-80"
         />
         <Reveal>
-          <SectionTitle overline="Day 1 · Saturday, 21 November 2026" title="Pre-Wedding Celebrations" />
+          <div className="text-center">
+            <div className="inline-block rounded-full border border-primary/45 bg-secondary/70 px-6 sm:px-10 py-2 sm:py-3 shadow-soft mb-2">
+              <h2 className="font-display text-xl sm:text-3xl text-foreground font-normal tracking-wide">
+                <span className="text-primary font-semibold">Day 1</span> · Saturday, 21 November 2026
+              </h2>
+            </div>
+            <p className="mt-2.5 script text-2xl sm:text-3xl text-primary font-medium">
+              Pre-Wedding Celebrations
+            </p>
+            <Divider />
+          </div>
         </Reveal>
 
         <ul className="space-y-5 max-w-2xl mx-auto">
@@ -382,13 +311,17 @@ function Invitation() {
       <section className="relative px-6 pb-20">
         <Reveal>
           <div className="card-soft relative mx-auto max-w-2xl overflow-hidden border-2 border-primary/50 p-7 sm:p-12 text-center shadow-[0_20px_50px_rgba(207,169,110,0.2)]">
-            <div className="inline-block rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-[0.64rem] uppercase tracking-[0.28em] text-primary font-medium">
-              Day 2 · The Sacred Vows
+            <div className="inline-block rounded-full border border-primary/45 bg-secondary/70 px-6 sm:px-10 py-2 sm:py-3 shadow-soft mb-3">
+              <h2 className="font-display text-lg sm:text-2xl md:text-3xl text-foreground font-normal tracking-wide">
+                <span className="text-primary font-semibold">Day 2 · The Sacred Vows</span>
+                <span className="mx-2 hidden sm:inline text-primary/60">·</span>
+                <span className="block sm:inline mt-0.5 sm:mt-0 text-foreground/90">Sunday, 22 November 2026</span>
+              </h2>
             </div>
 
-            <h2 className="mt-4 font-display text-[2.75rem] sm:text-[3.35rem] leading-[1.05] text-foreground font-light">
+            <h3 className="mt-2 font-display text-[2.75rem] sm:text-[3.35rem] leading-[1.05] text-foreground font-light">
               Wedding
-            </h2>
+            </h3>
             <p className="mt-2 script text-xl sm:text-2xl text-primary">
               So, Our Forever Begins
             </p>
