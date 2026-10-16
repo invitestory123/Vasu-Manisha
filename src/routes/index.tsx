@@ -32,31 +32,35 @@ const floralDivider =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vasu & Manisha — Wedding Invitation | 21–22 Nov 2026" },
+      { title: "Vasu & Manisha — Wedding Invitation | 21st – 22nd November 2026" },
       {
         name: "description",
         content:
-          "Together with our families, join Vasu & Manisha at RPN Resort and cafe, Uttarakhand. Haldi, Mehendi, Sangeet, and Wedding celebrations.",
+          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Uttarakhand on 21st – 22nd November 2026.",
       },
-      { property: "og:title", content: "Vasu & Manisha — Wedding Invitation | 21–22 Nov 2026" },
+      { property: "og:site_name", content: "Vasu & Manisha Wedding Invitation" },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: "Vasu & Manisha — Wedding Invitation | 21st – 22nd November 2026" },
       {
         property: "og:description",
         content:
-          "Together with our families, join Vasu & Manisha at RPN Resort and cafe, Uttarakhand. Haldi, Mehendi, Sangeet, and Wedding celebrations.",
+          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Uttarakhand on 21st – 22nd November 2026.",
       },
       { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:image:secure_url", content: "/og-image.jpg" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       {
         property: "og:image:alt",
-        content: "Vasu & Manisha — Wedding Invitation · 21–22 November 2026",
+        content: "Vasu & Manisha — Wedding Invitation · 21st – 22nd November 2026",
       },
-      { property: "og:image:type", content: "image/jpeg" },
-      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Vasu & Manisha — Wedding Invitation" },
       {
         name: "twitter:description",
         content:
-          "Together with our families, join Vasu & Manisha at RPN Resort and cafe, Uttarakhand on 21st – 22nd November 2026.",
+          "Together with our families, we invite you to the union of Vasu & Manisha on 21st – 22nd November 2026 at RPN Resort & Cafe, Uttarakhand.",
       },
       { name: "twitter:image", content: "/og-image.jpg" },
     ],
