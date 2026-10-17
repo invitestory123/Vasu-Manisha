@@ -1,6 +1,7 @@
 const heroArch = "https://media.invitestory.in/seashell-vows/src/assets/hero-arch.jpg";
 const floral = "https://media.invitestory.in/seashell-vows/src/assets/floral-spray.png";
 const coupleImg = "https://media.invitestory.in/seashell-vows/src/assets/couple-walking.png";
+import ganeshBlessing from "@/assets/ganesh-blessing-transparent.png";
 import { PetalTap } from "./PetalTap";
 import { useParallax } from "@/hooks/use-reveal";
 import { couple } from "@/lib/wedding";
@@ -47,7 +48,7 @@ export function Hero() {
 
         {/* Full Couple walking down the sandy path inside the arch */}
         <div
-          className="pointer-events-none relative z-10 flex flex-1 items-end justify-center pt-8 sm:pt-12 pb-2"
+          className="pointer-events-none relative z-10 flex flex-1 items-end justify-center pt-6 sm:pt-10 pb-1"
           style={{
             transform: `translate3d(0, ${-fg * 0.4}px, 0)`,
           }}
@@ -57,20 +58,34 @@ export function Hero() {
             alt="Bride and groom walking hand in hand"
             width={1024}
             height={1536}
-            className="h-[46svh] max-h-[440px] min-h-[270px] w-auto max-w-[85vw] object-contain animate-bloom drop-shadow-[0_16px_28px_rgba(92,80,68,0.22)]"
+            className="h-[38svh] sm:h-[44svh] max-h-[420px] min-h-[230px] w-auto max-w-[85vw] object-contain animate-bloom drop-shadow-[0_16px_28px_rgba(92,80,68,0.22)]"
           />
         </div>
 
         {/* Soft bottom veil to ensure 100% contrast & readability */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[36svh] bg-gradient-to-t from-[var(--background)] via-[var(--background)]/90 to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[38svh] bg-gradient-to-t from-[var(--background)] via-[var(--background)]/90 to-transparent"
           aria-hidden="true"
         />
 
         <div
-          className="relative z-10 flex flex-col items-center justify-end px-6 pb-12 text-center"
+          className="relative z-10 flex flex-col items-center justify-end px-6 pb-10 text-center"
           style={{ transform: `translate3d(0, ${-fg}px, 0)` }}
         >
+          {/* Sacred God's Blessing - Om Shri Ganeshaya Namah */}
+          <div
+            className="mb-2 sm:mb-3 flex flex-col items-center animate-ink"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <img
+              src={ganeshBlessing}
+              alt="॥ श्री गणेशाय नमः ॥"
+              width={400}
+              height={313}
+              className="w-40 sm:w-52 max-w-[72vw] h-auto object-contain drop-shadow-[0_2px_10px_rgba(180,135,70,0.18)]"
+            />
+          </div>
+
           <p
             className="font-script text-xl sm:text-2xl text-foreground/95 font-medium tracking-wide animate-ink drop-shadow-sm"
             style={{ animationDelay: "0.4s" }}
@@ -101,7 +116,7 @@ export function Hero() {
             className="mt-2 text-[0.66rem] uppercase tracking-airy text-muted-foreground animate-ink"
             style={{ animationDelay: "1.15s" }}
           >
-            RPN Resort &amp; Cafe · Uttarakhand
+            RPN Resort &amp; Cafe · Dehradun, Uttarakhand
           </p>
         </div>
       </header>

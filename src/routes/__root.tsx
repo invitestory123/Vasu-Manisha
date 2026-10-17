@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Uttarakhand on 21st – 22nd November 2026.",
+          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026.",
       },
       { property: "og:site_name", content: "Vasu & Manisha Wedding Invitation" },
       { property: "og:type", content: "website" },
@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Uttarakhand on 21st – 22nd November 2026.",
+          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026.",
       },
       { property: "og:image", content: "/og-image.jpg" },
       { property: "og:image:secure_url", content: "/og-image.jpg" },
@@ -101,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha on 21st – 22nd November 2026 at RPN Resort & Cafe, Uttarakhand.",
+          "Together with our families, we invite you to the union of Vasu & Manisha on 21st – 22nd November 2026 at RPN Resort & Cafe, Dehradun, Uttarakhand.",
       },
       { name: "twitter:image", content: "/og-image.jpg" },
     ],

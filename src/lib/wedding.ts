@@ -52,7 +52,7 @@ export const preWeddingEvents: WeddingEvent[] = [
     glyph: "❋",
     date: "21 Nov 2026",
     time: "10:00 AM",
-    venue: "RPN Resort and cafe, Uttarakhand",
+    venue: "RPN Resort and cafe, Dehradun, Uttarakhand",
     dressCode:
       "Bring out your brightest and happy hues and playful ethnic or indo western looks. The more colourful, the merrier!",
     note: "Shades of Sunshine",
@@ -64,7 +64,7 @@ export const preWeddingEvents: WeddingEvent[] = [
     glyph: "❁",
     date: "21 Nov 2026",
     time: "2:00 PM",
-    venue: "RPN Resort and cafe, Uttarakhand",
+    venue: "RPN Resort and cafe, Dehradun, Uttarakhand",
     dressCode: "Pastels or brights, florals or prints — just bring your happiest colours!",
     note: "Mehendi in Bloom",
     themeColor: "from-emerald-500/15 to-teal-500/5",
@@ -75,7 +75,7 @@ export const preWeddingEvents: WeddingEvent[] = [
     glyph: "✧",
     date: "21 Nov 2026",
     time: "7:00 PM",
-    venue: "RPN Resort and cafe, Uttarakhand",
+    venue: "RPN Resort and cafe, Dehradun, Uttarakhand",
     dressCode: "Think sequins, shimmer, metallics and a touch of sparkle. Dress to dazzle!",
     note: "Glitter & Glam",
     themeColor: "from-purple-500/15 to-rose-500/5",
@@ -88,7 +88,7 @@ export const weddingCeremony: WeddingEvent = {
   glyph: "☀",
   date: "22 Nov 2026",
   time: "11:00 AM",
-  venue: "RPN Resort and cafe, Uttarakhand",
+  venue: "RPN Resort and cafe, Dehradun, Uttarakhand",
   dressCode: "Think soft hues, delicate shades and dreamy pastels",
   note: "So, Our Forever Begins",
   themeColor: "from-amber-500/20 via-primary/10 to-transparent",
@@ -98,8 +98,8 @@ export const events: WeddingEvent[] = [...preWeddingEvents, weddingCeremony];
 
 export const venue = {
   name: "RPN Resort and cafe",
-  address: "Village, near Phulsani, Ankowala, Aamwala, Uttarakhand 248003",
-  locationShort: "Uttarakhand",
+  address: "Village, near Phulsani, Ankowala, Aamwala, Dehradun, Uttarakhand 248003",
+  locationShort: "Dehradun, Uttarakhand",
   mapsUrl: "https://maps.app.goo.gl/54QoUSVVCeVAAgCb8?g_st=ic",
 };
 

@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Uttarakhand on 21st – 22nd November 2026.",
+          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026.",
       },
       { property: "og:site_name", content: "Vasu & Manisha Wedding Invitation" },
       { property: "og:type", content: "website" },
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Uttarakhand on 21st – 22nd November 2026.",
+          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026.",
       },
       { property: "og:image", content: "/og-image.jpg" },
       { property: "og:image:secure_url", content: "/og-image.jpg" },
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/")({
       {
         name: "twitter:description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha on 21st – 22nd November 2026 at RPN Resort & Cafe, Uttarakhand.",
+          "Together with our families, we invite you to the union of Vasu & Manisha on 21st – 22nd November 2026 at RPN Resort & Cafe, Dehradun, Uttarakhand.",
       },
       { name: "twitter:image", content: "/og-image.jpg" },
     ],
@@ -345,10 +345,10 @@ function Invitation() {
                 11:00 AM Onwards
               </p>
               <p className="mt-2 text-sm text-foreground/85 font-medium">
-                RPN Resort and cafe, Uttarakhand
+                RPN Resort and cafe, Dehradun, Uttarakhand
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Village, near Phulsani, Ankowala, Aamwala, Uttarakhand 248003
+                Village, near Phulsani, Ankowala, Aamwala, Dehradun, Uttarakhand 248003
               </p>
             </div>
 

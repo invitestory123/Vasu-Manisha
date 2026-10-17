@@ -90,11 +90,11 @@ async function generateStaticHtml() {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vasu &amp; Manisha — Wedding Invitation | 21st – 22nd November 2026</title>
-    <meta name="description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha. Join us to celebrate at RPN Resort &amp; Cafe, Uttarakhand on 21st – 22nd November 2026." />
+    <meta name="description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha. Join us to celebrate at RPN Resort &amp; Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026." />
     <meta property="og:site_name" content="Vasu &amp; Manisha Wedding Invitation" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Vasu &amp; Manisha — Wedding Invitation | 21st – 22nd November 2026" />
-    <meta property="og:description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha. Join us to celebrate at RPN Resort &amp; Cafe, Uttarakhand on 21st – 22nd November 2026." />
+    <meta property="og:description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha. Join us to celebrate at RPN Resort &amp; Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026." />
     <meta property="og:image" content="/og-image.jpg" />
     <meta property="og:image:secure_url" content="/og-image.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
@@ -103,7 +103,7 @@ async function generateStaticHtml() {
     <meta property="og:image:alt" content="Vasu &amp; Manisha — Wedding Invitation · 21st – 22nd November 2026" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Vasu &amp; Manisha — Wedding Invitation" />
-    <meta name="twitter:description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha on 21st – 22nd November 2026 at RPN Resort &amp; Cafe, Uttarakhand." />
+    <meta name="twitter:description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha on 21st – 22nd November 2026 at RPN Resort &amp; Cafe, Dehradun, Uttarakhand." />
     <meta name="twitter:image" content="/og-image.jpg" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

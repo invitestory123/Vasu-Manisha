@@ -73,7 +73,7 @@ export function WeddingFooter() {
           </div>
           <div className="pl-5">
             <p className="text-xs text-muted-foreground">The place</p>
-            <p className="mt-1 font-display text-lg">Uttarakhand</p>
+            <p className="mt-1 font-display text-lg">Dehradun, Uttarakhand</p>
           </div>
         </div>
 
