@@ -13,17 +13,16 @@ import {
   brideDetails,
   groomDetails,
   coupleFusion,
-  preWeddingEvents,
-  weddingCeremony,
-  venue,
+  events,
+  venues,
   downloadICS,
 } from "@/lib/wedding";
 import { useParallax } from "@/hooks/use-reveal";
 const floral = "https://media.invitestory.in/seashell-vows/src/assets/floral-spray.png";
 import mapImg from "@/assets/venue-map.jpg";
-import brideImg from "@/assets/bride.jpg";
-import groomImg from "@/assets/groom.jpg";
-import coupleTogetherImg from "@/assets/couple-real.jpg";
+import brideImg from "@/assets/bride-ai.jpg";
+import groomImg from "@/assets/groom-ai.jpg";
+import coupleImg from "@/assets/couple-ai.jpg";
 const ringsVignette =
   "https://media.invitestory.in/seashell-vows/src/assets/rings-seashell-vignette.png";
 const floralDivider =
@@ -32,19 +31,22 @@ const floralDivider =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vasu & Manisha — Wedding Invitation | 21st – 22nd November 2026" },
+      { title: "Joshua Vishal & Virgin Mary — Wedding Invitation | 20th November 2026" },
       {
         name: "description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026.",
+          "Together with our families, we invite you to celebrate the holy matrimony of Joshua Vishal & Virgin Mary on Friday, 20th November 2026 at Holy Ghost Church & CMA Royal Convention Hall, Bengaluru.",
       },
-      { property: "og:site_name", content: "Vasu & Manisha Wedding Invitation" },
+      { property: "og:site_name", content: "Joshua Vishal & Virgin Mary Wedding Invitation" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Vasu & Manisha — Wedding Invitation | 21st – 22nd November 2026" },
+      {
+        property: "og:title",
+        content: "Joshua Vishal & Virgin Mary — Wedding Invitation | 20th November 2026",
+      },
       {
         property: "og:description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha. Join us to celebrate at RPN Resort & Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026.",
+          "Together with our families, we invite you to celebrate the holy matrimony of Joshua Vishal & Virgin Mary on Friday, 20th November 2026 at Holy Ghost Church & CMA Royal Convention Hall, Bengaluru.",
       },
       { property: "og:image", content: "/og-image.jpg" },
       { property: "og:image:secure_url", content: "/og-image.jpg" },
@@ -53,14 +55,14 @@ export const Route = createFileRoute("/")({
       { property: "og:image:height", content: "630" },
       {
         property: "og:image:alt",
-        content: "Vasu & Manisha — Wedding Invitation · 21st – 22nd November 2026",
+        content: "Joshua Vishal & Virgin Mary — Wedding Invitation · 20th November 2026",
       },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Vasu & Manisha — Wedding Invitation" },
+      { name: "twitter:title", content: "Joshua Vishal & Virgin Mary — Wedding Invitation" },
       {
         name: "twitter:description",
         content:
-          "Together with our families, we invite you to the union of Vasu & Manisha on 21st – 22nd November 2026 at RPN Resort & Cafe, Dehradun, Uttarakhand.",
+          "Together with our families, we invite you to celebrate the holy matrimony of Joshua Vishal & Virgin Mary on Friday, 20th November 2026 at Holy Ghost Church & CMA Royal Convention Hall, Bengaluru.",
       },
       { name: "twitter:image", content: "/og-image.jpg" },
     ],
@@ -83,21 +85,19 @@ function Invitation() {
       {/* Hero Welcome Screen */}
       <Hero />
 
-
-
-      {/* 2 & 3. Meet the Bride & Meet the Groom (Individual Introductions) */}
+      {/* 2 & 3. Meet the Bride & Meet the Groom */}
       <section className="relative px-6 py-10">
         <Reveal>
           <SectionTitle overline="Together in Love" title="Bride & Groom" />
         </Reveal>
         <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
-          {/* 2. Meet the Bride – Manisha Mehra */}
+          {/* Meet the Bride */}
           <Reveal delay={60}>
             <article className="card-soft group overflow-hidden text-center h-full flex flex-col">
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
                 <img
                   src={brideImg}
-                  alt="Manisha Mehra — The Bride"
+                  alt={`${brideDetails.name} — ${brideDetails.role}`}
                   loading="lazy"
                   className="h-full w-full object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-105"
                 />
@@ -131,13 +131,13 @@ function Invitation() {
             </article>
           </Reveal>
 
-          {/* 3. Meet the Groom – Vasu Issar */}
+          {/* Meet the Groom */}
           <Reveal delay={120}>
             <article className="card-soft group overflow-hidden text-center h-full flex flex-col">
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
                 <img
                   src={groomImg}
-                  alt="Vasu Issar — The Groom"
+                  alt={`${groomDetails.name} — ${groomDetails.role}`}
                   loading="lazy"
                   className="h-full w-full object-cover object-[center_15%] transition-transform duration-700 ease-out group-hover:scale-105"
                 />
@@ -173,7 +173,7 @@ function Invitation() {
         </div>
       </section>
 
-      {/* 4. Meet the Couple: Pahadi & Punjabi Fusion */}
+      {/* 4. Meet the Couple */}
       <section className="relative px-6 pb-16">
         <img
           src={floral}
@@ -186,15 +186,15 @@ function Invitation() {
           style={{ transform: `translate3d(0, ${drift * 0.3}px, 0)` }}
         />
         <Reveal>
-          <SectionTitle overline="Two Cultures · One Love" title="Meet the Couple" />
+          <SectionTitle overline="Two Hearts · One Vow" title="Meet the Couple" />
         </Reveal>
 
         <Reveal delay={60}>
           <div className="card-soft mx-auto max-w-xl overflow-hidden text-center">
             <div className="relative aspect-[4/5] sm:aspect-[16/11] w-full overflow-hidden bg-muted">
               <img
-                src={coupleTogetherImg}
-                alt="Manisha & Vasu together"
+                src={coupleImg}
+                alt={`${couple.bride} & ${couple.groom} together`}
                 loading="lazy"
                 className="h-full w-full object-cover object-[center_20%] transition-transform duration-700 ease-out hover:scale-105"
               />
@@ -204,7 +204,8 @@ function Invitation() {
                   {coupleFusion.badge}
                 </span>
                 <h3 className="mt-2 font-display text-3xl sm:text-4xl text-white drop-shadow-md">
-                  {couple.bride} <span className="script text-2xl text-[#f4d8a1]">&amp;</span> {couple.groom}
+                  {couple.bride} <span className="script text-2xl text-[#f4d8a1]">&amp;</span>{" "}
+                  {couple.groom}
                 </h3>
               </div>
             </div>
@@ -218,7 +219,7 @@ function Invitation() {
               </blockquote>
               <div className="my-4 flex items-center justify-center gap-3 text-primary/60">
                 <span className="h-px w-10 bg-primary/30" />
-                <span className="text-xs">❋</span>
+                <span className="text-xs">✝</span>
                 <span className="h-px w-10 bg-primary/30" />
               </div>
               <p className="script text-base sm:text-lg text-primary">
@@ -235,7 +236,7 @@ function Invitation() {
           <SectionTitle overline="Save the Date" title="Counting Down to the Vows" />
           <div className="card-soft mx-auto max-w-lg p-6 text-center">
             <p className="text-[0.68rem] uppercase tracking-airy text-primary font-medium">
-              {couple.dateLabel} · {venue.locationShort}
+              {couple.dateLabel} · Bengaluru, Karnataka
             </p>
             <div className="mt-6">
               <Countdown iso={couple.weddingISO} />
@@ -244,7 +245,7 @@ function Invitation() {
         </Reveal>
       </section>
 
-      {/* Day 1: Pre-Wedding Celebrations (Haldi, Mehendi, Sangeet) */}
+      {/* Order of Celebrations */}
       <section className="relative px-6 pb-16">
         <img
           src={floralDivider}
@@ -259,21 +260,21 @@ function Invitation() {
           <div className="text-center">
             <div className="inline-block rounded-full border border-primary/45 bg-secondary/70 px-6 sm:px-10 py-2 sm:py-3 shadow-soft mb-2">
               <h2 className="font-display text-xl sm:text-3xl text-foreground font-normal tracking-wide">
-                <span className="text-primary font-semibold">Day 1</span> · Saturday, 21 November 2026
+                <span className="text-primary font-semibold">Friday</span> · 20 November 2026
               </h2>
             </div>
             <p className="mt-2.5 script text-2xl sm:text-3xl text-primary font-medium">
-              Pre-Wedding Celebrations
+              Order of Celebrations
             </p>
             <Divider />
           </div>
         </Reveal>
 
-        <ul className="space-y-5 max-w-2xl mx-auto">
-          {preWeddingEvents.map((ev, i) => (
+        <ul className="space-y-6 max-w-2xl mx-auto">
+          {events.map((ev, i) => (
             <li key={ev.name}>
               <Reveal delay={i * 80}>
-                <article className="card-soft press p-5 sm:p-6 transition-all duration-300 hover:border-primary/45">
+                <article className="card-soft press p-5 sm:p-7 transition-all duration-300 hover:border-primary/50">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-primary/20 pb-4">
                     <div className="flex items-center gap-3.5">
                       <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary/35 bg-primary/10 text-primary text-xl font-serif">
@@ -283,17 +284,27 @@ function Invitation() {
                         <div className="flex flex-wrap items-baseline gap-2">
                           <h3 className="font-display text-2xl sm:text-3xl">{ev.name}</h3>
                           {ev.subtitle && (
-                            <span className="script text-base sm:text-lg text-primary">— {ev.subtitle}</span>
+                            <span className="script text-base sm:text-lg text-primary">
+                              — {ev.subtitle}
+                            </span>
                           )}
                         </div>
-                        <p className="mt-1 text-[0.68rem] uppercase tracking-airy font-medium text-primary">
+                        <p className="mt-1 text-[0.68rem] uppercase tracking-airy font-semibold text-primary">
                           {ev.date} · {ev.time}
                         </p>
                       </div>
                     </div>
                     <span className="self-start sm:self-auto rounded-full border border-primary/30 bg-secondary/80 px-3.5 py-1 text-[0.62rem] uppercase tracking-wider text-muted-foreground">
-                      RPN Resort &amp; Cafe
+                      {ev.venue}
                     </span>
+                  </div>
+
+                  <p className="mt-4 text-sm text-foreground/85 leading-relaxed font-normal">
+                    {ev.note}
+                  </p>
+
+                  <div className="mt-3 text-xs text-muted-foreground">
+                    <p className="font-medium text-foreground/80">{ev.address}</p>
                   </div>
 
                   {ev.dressCode && (
@@ -304,6 +315,20 @@ function Invitation() {
                       <p className="leading-relaxed">{ev.dressCode}</p>
                     </div>
                   )}
+
+                  {ev.mapsUrl && (
+                    <div className="mt-4 pt-3 border-t border-primary/15 flex justify-end">
+                      <a
+                        href={ev.mapsUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="press inline-flex items-center gap-1.5 text-[0.66rem] uppercase tracking-airy text-primary hover:underline font-medium"
+                      >
+                        <span>Directions to {ev.venue}</span>
+                        <span>→</span>
+                      </a>
+                    </div>
+                  )}
                 </article>
               </Reveal>
             </li>
@@ -311,60 +336,59 @@ function Invitation() {
         </ul>
       </section>
 
-      {/* Day 2: The Wedding Ceremony (Standalone Highlighted Royal Page Section) */}
+      {/* The Sacred Vows Royal Highlight Card */}
       <section className="relative px-6 pb-20">
         <Reveal>
           <div className="card-soft relative mx-auto max-w-2xl overflow-hidden border-2 border-primary/50 p-7 sm:p-12 text-center shadow-[0_20px_50px_rgba(207,169,110,0.2)]">
             <div className="inline-block rounded-full border border-primary/45 bg-secondary/70 px-6 sm:px-10 py-2 sm:py-3 shadow-soft mb-3">
               <h2 className="font-display text-lg sm:text-2xl md:text-3xl text-foreground font-normal tracking-wide">
-                <span className="text-primary font-semibold">Day 2 · The Sacred Vows</span>
+                <span className="text-primary font-semibold">The Sacred Vows</span>
                 <span className="mx-2 hidden sm:inline text-primary/60">·</span>
-                <span className="block sm:inline mt-0.5 sm:mt-0 text-foreground/90">Sunday, 22 November 2026</span>
+                <span className="block sm:inline mt-0.5 sm:mt-0 text-foreground/90">
+                  Friday, 20 November 2026
+                </span>
               </h2>
             </div>
 
             <h3 className="mt-2 font-display text-[2.75rem] sm:text-[3.35rem] leading-[1.05] text-foreground font-light">
-              Wedding
+              Wedding &amp; Reception
             </h3>
-            <p className="mt-2 script text-xl sm:text-2xl text-primary">
-              So, Our Forever Begins
-            </p>
+            <p className="mt-2 script text-xl sm:text-2xl text-primary">So, Our Forever Begins</p>
 
             <div className="my-6 flex items-center justify-center gap-3 text-primary/60">
               <span className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
-              <span className="text-sm">☀</span>
+              <span className="text-sm">✝</span>
               <span className="h-px w-16 bg-gradient-to-l from-transparent to-primary/50" />
             </div>
 
-            {/* Date, Time & Venue in prominent gold frame */}
-            <div className="rounded-sm border border-primary/35 bg-secondary/60 p-5 sm:p-6 my-6">
-              <p className="text-[0.72rem] uppercase tracking-[0.24em] font-semibold text-primary">
-                Sunday · 22 November 2026
-              </p>
-              <p className="mt-2 font-display text-2xl sm:text-3xl text-foreground">
-                11:00 AM Onwards
-              </p>
-              <p className="mt-2 text-sm text-foreground/85 font-medium">
-                RPN Resort and cafe, Dehradun, Uttarakhand
-              </p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                Village, near Phulsani, Ankowala, Aamwala, Dehradun, Uttarakhand 248003
-              </p>
-            </div>
+            {/* Schedule Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left my-6">
+              <div className="rounded-sm border border-primary/35 bg-secondary/60 p-4 sm:p-5">
+                <p className="text-[0.66rem] uppercase tracking-[0.2em] font-semibold text-primary">
+                  Holy Matrimony · 2:30 PM
+                </p>
+                <p className="mt-1 font-display text-xl text-foreground">Holy Ghost Church</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Clarke Road, Richards Town, Bengaluru
+                </p>
+              </div>
 
-            {/* Dress Code Highlight */}
-            <div className="rounded border border-primary/25 bg-background/80 p-4 text-center my-6">
-              <span className="mb-1 block text-[0.62rem] font-medium uppercase tracking-airy text-primary">
-                Dress Code
-              </span>
-              <p className="font-display text-base sm:text-lg text-foreground/90 italic">
-                {weddingCeremony.dressCode}
-              </p>
+              <div className="rounded-sm border border-primary/35 bg-secondary/60 p-4 sm:p-5">
+                <p className="text-[0.66rem] uppercase tracking-[0.2em] font-semibold text-primary">
+                  Reception · 6:30 PM
+                </p>
+                <p className="mt-1 font-display text-xl text-foreground">
+                  CMA ROYAL CONVENTION HALL
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Thanisandra Main Road, Bengaluru
+                </p>
+              </div>
             </div>
 
             <p className="font-display text-base sm:text-lg leading-relaxed text-foreground/90 max-w-lg mx-auto">
-              With the sacred pheras around the holy fire and the blessings of all our near and dear ones,
-              we step into eternity hand in hand.
+              With the blessings of our parents, families, and Almighty God, we invite you to
+              witness our vows and celebrate this unforgettable joyous day with us.
             </p>
 
             <img
@@ -385,12 +409,20 @@ function Invitation() {
                 Add to Calendar
               </button>
               <a
-                href={venue.mapsUrl}
+                href="https://maps.app.goo.gl/dnWydAZJLPWChWyt9?g_st=ic"
                 target="_blank"
                 rel="noreferrer"
                 className="press flex min-h-[46px] w-full sm:w-auto items-center justify-center rounded-sm border border-primary/45 bg-secondary px-6 text-[0.66rem] uppercase tracking-airy text-foreground font-medium"
               >
-                Open in Google Maps
+                Church Map (2:30 PM)
+              </a>
+              <a
+                href="https://maps.app.goo.gl/m5hpSKKpY2UnxJZp7?g_st=ic"
+                target="_blank"
+                rel="noreferrer"
+                className="press flex min-h-[46px] w-full sm:w-auto items-center justify-center rounded-sm border border-primary/45 bg-secondary px-6 text-[0.66rem] uppercase tracking-airy text-foreground font-medium"
+              >
+                Reception Map (6:30 PM)
               </a>
             </div>
           </div>
@@ -402,30 +434,44 @@ function Invitation() {
         <WishLantern />
       </Reveal>
 
-      {/* Venue Section */}
+      {/* Venues Section */}
       <section className="px-6 pb-16">
         <Reveal>
-          <SectionTitle overline="Find your way" title="The venue" />
-          <div className="card-soft overflow-hidden max-w-2xl mx-auto">
+          <SectionTitle overline="Find your way" title="The Venues" />
+          <div className="card-soft overflow-hidden max-w-3xl mx-auto">
             <img
               src={mapImg}
-              alt={`Illustrated map of ${venue.name}`}
+              alt="Illustrated map of venues"
               loading="lazy"
               width={1024}
               height={768}
               className="h-48 w-full object-cover"
             />
             <div className="p-6">
-              <h3 className="font-display text-2xl">{venue.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{venue.address}</p>
-              <a
-                href={venue.mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="press mt-5 flex min-h-[48px] items-center justify-center rounded-sm bg-primary px-5 text-[0.68rem] uppercase tracking-airy text-primary-foreground font-medium"
-              >
-                Open in Google Maps
-              </a>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {venues.map((v) => (
+                  <div
+                    key={v.name}
+                    className="flex flex-col justify-between border-t md:border-t-0 md:first:border-none pt-4 md:pt-0 border-primary/20"
+                  >
+                    <div>
+                      <span className="text-[0.64rem] uppercase tracking-airy font-semibold text-primary">
+                        {v.title} · {v.time}
+                      </span>
+                      <h3 className="font-display text-2xl mt-1">{v.name}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">{v.address}</p>
+                    </div>
+                    <a
+                      href={v.mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="press mt-4 flex min-h-[44px] items-center justify-center rounded-sm bg-primary px-4 text-[0.66rem] uppercase tracking-airy text-primary-foreground font-medium"
+                    >
+                      Open in Google Maps
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>

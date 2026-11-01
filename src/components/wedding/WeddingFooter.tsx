@@ -63,17 +63,17 @@ export function WeddingFooter() {
         />
         <p className="mt-4 script text-lg text-primary">We cannot wait to celebrate with you</p>
         <h2 className="mt-4 font-display text-[2.2rem] sm:text-[2.65rem] leading-[1.15]">
-          Issar <span className="script text-2xl text-primary">&</span> Mehra Family
+          D <span className="script text-2xl text-primary">&</span> S Families
         </h2>
 
         <div className="mt-7 grid w-full max-w-sm grid-cols-2 border-y border-primary/25 py-4 text-left">
           <div className="border-r border-primary/25 pr-5">
             <p className="text-xs text-muted-foreground">The wedding</p>
-            <p className="mt-1 font-display text-lg">22 November 2026</p>
+            <p className="mt-1 font-display text-lg">20 November 2026</p>
           </div>
           <div className="pl-5">
             <p className="text-xs text-muted-foreground">The place</p>
-            <p className="mt-1 font-display text-lg">Dehradun, Uttarakhand</p>
+            <p className="mt-1 font-display text-lg">Bengaluru, Karnataka</p>
           </div>
         </div>
 

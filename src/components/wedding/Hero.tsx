@@ -1,7 +1,7 @@
 const heroArch = "https://media.invitestory.in/seashell-vows/src/assets/hero-arch.jpg";
 const floral = "https://media.invitestory.in/seashell-vows/src/assets/floral-spray.png";
-const coupleImg = "https://media.invitestory.in/seashell-vows/src/assets/couple-walking.png";
-import ganeshBlessing from "@/assets/ganesh-blessing-transparent.png";
+const ringsVignette =
+  "https://media.invitestory.in/seashell-vows/src/assets/rings-seashell-vignette.png";
 import { PetalTap } from "./PetalTap";
 import { useParallax } from "@/hooks/use-reveal";
 import { couple } from "@/lib/wedding";
@@ -19,7 +19,7 @@ export function Hero() {
         >
           <img
             src={heroArch}
-            alt="Watercolor beach wedding arch at sunset"
+            alt="Watercolor wedding arch"
             width={1024}
             height={1536}
             className="h-full w-full object-cover object-top animate-bloom"
@@ -46,23 +46,23 @@ export function Hero() {
           style={{ animationDelay: "1.4s", transform: `translate3d(0, ${bg * 0.35}px, 0)` }}
         />
 
-        {/* Full Couple walking down the sandy path inside the arch */}
+        {/* Sacred Rings & Floral Wreath Vignette (No person photo) */}
         <div
-          className="pointer-events-none relative z-10 flex flex-1 items-end justify-center pt-6 sm:pt-10 pb-1"
+          className="pointer-events-none relative z-10 flex flex-1 items-end justify-center pt-8 sm:pt-12 pb-3"
           style={{
             transform: `translate3d(0, ${-fg * 0.4}px, 0)`,
           }}
         >
           <img
-            src={coupleImg}
-            alt="Bride and groom walking hand in hand"
-            width={1024}
-            height={1536}
-            className="h-[38svh] sm:h-[44svh] max-h-[420px] min-h-[230px] w-auto max-w-[85vw] object-contain animate-bloom drop-shadow-[0_16px_28px_rgba(92,80,68,0.22)]"
+            src={ringsVignette}
+            alt="Watercolor wedding rings and floral wreath"
+            width={1536}
+            height={1024}
+            className="h-[26svh] sm:h-[30svh] max-h-[280px] min-h-[150px] w-auto max-w-[78vw] object-contain animate-bloom drop-shadow-[0_12px_24px_rgba(92,80,68,0.18)]"
           />
         </div>
 
-        {/* Soft bottom veil to ensure 100% contrast & readability */}
+        {/* Soft bottom veil to ensure readability */}
         <div
           className="pointer-events-none absolute inset-x-0 bottom-0 h-[38svh] bg-gradient-to-t from-[var(--background)] via-[var(--background)]/90 to-transparent"
           aria-hidden="true"
@@ -72,18 +72,18 @@ export function Hero() {
           className="relative z-10 flex flex-col items-center justify-end px-6 pb-10 text-center"
           style={{ transform: `translate3d(0, ${-fg}px, 0)` }}
         >
-          {/* Sacred God's Blessing - Om Shri Ganeshaya Namah */}
+          {/* Sacred God's Blessing Seal */}
           <div
             className="mb-2 sm:mb-3 flex flex-col items-center animate-ink"
             style={{ animationDelay: "0.2s" }}
           >
-            <img
-              src={ganeshBlessing}
-              alt="॥ श्री गणेशाय नमः ॥"
-              width={400}
-              height={313}
-              className="w-40 sm:w-52 max-w-[72vw] h-auto object-contain drop-shadow-[0_2px_10px_rgba(180,135,70,0.18)]"
-            />
+            <div className="flex items-center gap-2 rounded-full border border-primary/40 bg-secondary/80 px-4 py-1 text-primary shadow-soft backdrop-blur-xs">
+              <span className="text-xs">✝</span>
+              <span className="text-[0.62rem] uppercase tracking-[0.22em] font-medium text-foreground/90">
+                United in God’s Grace &amp; Love
+              </span>
+              <span className="text-xs">✝</span>
+            </div>
           </div>
 
           <p
@@ -96,10 +96,10 @@ export function Hero() {
             className="mt-1 font-script text-lg sm:text-xl text-primary font-medium tracking-wide animate-ink drop-shadow-sm"
             style={{ animationDelay: "0.55s" }}
           >
-            We invite you to the union of
+            We invite you to celebrate the holy union of
           </p>
           <h1
-            className="mt-2 font-display text-[2.9rem] sm:text-[3.15rem] leading-[1.02] text-foreground animate-ink"
+            className="mt-2 font-display text-[2.7rem] sm:text-[3.25rem] leading-[1.05] text-foreground animate-ink font-normal"
             style={{ animationDelay: "0.7s" }}
           >
             {couple.groom}
@@ -107,7 +107,7 @@ export function Hero() {
             {couple.bride}
           </h1>
           <p
-            className="mt-4 text-[0.66rem] uppercase tracking-airy text-muted-foreground animate-ink"
+            className="mt-4 text-[0.68rem] uppercase tracking-airy font-semibold text-primary animate-ink"
             style={{ animationDelay: "1s" }}
           >
             {couple.dateLabel}
@@ -116,7 +116,7 @@ export function Hero() {
             className="mt-2 text-[0.66rem] uppercase tracking-airy text-muted-foreground animate-ink"
             style={{ animationDelay: "1.15s" }}
           >
-            RPN Resort &amp; Cafe · Dehradun, Uttarakhand
+            Holy Ghost Church &amp; CMA Royal Convention Hall · Bengaluru
           </p>
         </div>
       </header>

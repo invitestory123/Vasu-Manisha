@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX, Music } from "lucide-react";
+import { musicConfig } from "@/lib/wedding";
 
 interface MusicPlayerProps {
   autoPlayTrigger?: boolean;
@@ -11,7 +12,7 @@ export function MusicPlayer({ autoPlayTrigger }: MusicPlayerProps) {
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    const audio = new Audio("/audio/wedding-music.mp3");
+    const audio = new Audio(musicConfig.src);
     audio.loop = true;
     audio.preload = "auto";
     audioRef.current = audio;
@@ -69,7 +70,7 @@ export function MusicPlayer({ autoPlayTrigger }: MusicPlayerProps) {
         <div className="animate-fade-in pointer-events-none rounded-full border border-primary/40 bg-background/95 px-3.5 py-1.5 shadow-lg backdrop-blur-md">
           <p className="font-display text-xs text-foreground/90">
             <span className="script text-primary mr-1">♫</span>
-            I Think They Call This Love
+            {musicConfig.title}
           </p>
         </div>
       )}
@@ -79,7 +80,7 @@ export function MusicPlayer({ autoPlayTrigger }: MusicPlayerProps) {
         type="button"
         onClick={togglePlay}
         aria-label={isPlaying ? "Pause background music" : "Play background music"}
-        title={isPlaying ? "Pause music: I Think They Call This Love" : "Play music"}
+        title={isPlaying ? `Pause music: ${musicConfig.title}` : "Play music"}
         className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-primary/50 bg-background/90 text-primary shadow-[0_8px_24px_rgba(207,169,110,0.35)] backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-primary active:scale-95"
       >
         {isPlaying ? (

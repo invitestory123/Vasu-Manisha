@@ -42,7 +42,15 @@ async function generateStaticHtml() {
   }
 
   // Strategy 1: Render via SSR service bundle built by Vite/Nitro
-  const ssrPath = path.join(rootDir, "node_modules", ".nitro", "vite", "services", "ssr", "index.js");
+  const ssrPath = path.join(
+    rootDir,
+    "node_modules",
+    ".nitro",
+    "vite",
+    "services",
+    "ssr",
+    "index.js",
+  );
   if (fs.existsSync(ssrPath)) {
     try {
       console.log(`[generate-static] Found SSR service bundle at ${ssrPath}`);
@@ -56,13 +64,18 @@ async function generateStaticHtml() {
             if (fs.existsSync(outputPublic)) {
               fs.writeFileSync(path.join(outputPublic, "index.html"), html, "utf8");
             }
-            console.log(`[generate-static] Successfully generated static index.html via SSR (${html.length} bytes)`);
+            console.log(
+              `[generate-static] Successfully generated static index.html via SSR (${html.length} bytes)`,
+            );
             return;
           }
         }
       }
     } catch (err) {
-      console.warn("[generate-static] SSR render failed, falling back to client SPA template:", err);
+      console.warn(
+        "[generate-static] SSR render failed, falling back to client SPA template:",
+        err,
+      );
     }
   }
 
@@ -81,29 +94,33 @@ async function generateStaticHtml() {
     }
   }
 
-  const cssTags = cssFiles.map((file) => `<link rel="stylesheet" href="/assets/${file}" />`).join("\n    ");
-  const jsTags = jsFiles.map((file) => `<script type="module" src="/assets/${file}"></script>`).join("\n    ");
+  const cssTags = cssFiles
+    .map((file) => `<link rel="stylesheet" href="/assets/${file}" />`)
+    .join("\n    ");
+  const jsTags = jsFiles
+    .map((file) => `<script type="module" src="/assets/${file}"></script>`)
+    .join("\n    ");
 
   const fallbackHtml = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vasu &amp; Manisha — Wedding Invitation | 21st – 22nd November 2026</title>
-    <meta name="description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha. Join us to celebrate at RPN Resort &amp; Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026." />
-    <meta property="og:site_name" content="Vasu &amp; Manisha Wedding Invitation" />
+    <title>Joshua Vishal &amp; Virgin Mary — Wedding Invitation | 20th November 2026</title>
+    <meta name="description" content="Together with our families, we invite you to celebrate the holy matrimony of Joshua Vishal &amp; Virgin Mary on Friday, 20th November 2026 at Holy Ghost Church &amp; CMA Royal Convention Hall, Bengaluru." />
+    <meta property="og:site_name" content="Joshua Vishal &amp; Virgin Mary Wedding Invitation" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Vasu &amp; Manisha — Wedding Invitation | 21st – 22nd November 2026" />
-    <meta property="og:description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha. Join us to celebrate at RPN Resort &amp; Cafe, Dehradun, Uttarakhand on 21st – 22nd November 2026." />
+    <meta property="og:title" content="Joshua Vishal &amp; Virgin Mary — Wedding Invitation | 20th November 2026" />
+    <meta property="og:description" content="Together with our families, we invite you to celebrate the holy matrimony of Joshua Vishal &amp; Virgin Mary on Friday, 20th November 2026 at Holy Ghost Church &amp; CMA Royal Convention Hall, Bengaluru." />
     <meta property="og:image" content="/og-image.jpg" />
     <meta property="og:image:secure_url" content="/og-image.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Vasu &amp; Manisha — Wedding Invitation · 21st – 22nd November 2026" />
+    <meta property="og:image:alt" content="Joshua Vishal &amp; Virgin Mary — Wedding Invitation · 20th November 2026" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vasu &amp; Manisha — Wedding Invitation" />
-    <meta name="twitter:description" content="Together with our families, we invite you to the union of Vasu &amp; Manisha on 21st – 22nd November 2026 at RPN Resort &amp; Cafe, Dehradun, Uttarakhand." />
+    <meta name="twitter:title" content="Joshua Vishal &amp; Virgin Mary — Wedding Invitation" />
+    <meta name="twitter:description" content="Together with our families, we invite you to celebrate the holy matrimony of Joshua Vishal &amp; Virgin Mary on Friday, 20th November 2026 at Holy Ghost Church &amp; CMA Royal Convention Hall, Bengaluru." />
     <meta name="twitter:image" content="/og-image.jpg" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -121,7 +138,9 @@ async function generateStaticHtml() {
   if (fs.existsSync(outputPublic)) {
     fs.writeFileSync(path.join(outputPublic, "index.html"), fallbackHtml, "utf8");
   }
-  console.log(`[generate-static] Successfully wrote fallback index.html (${fallbackHtml.length} bytes)`);
+  console.log(
+    `[generate-static] Successfully wrote fallback index.html (${fallbackHtml.length} bytes)`,
+  );
 }
 
 generateStaticHtml().catch((err) => {
